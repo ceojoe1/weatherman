@@ -29,12 +29,24 @@ export const GlobalStyles = createGlobalStyle`
     font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     transition: all 0.25s linear;
   }
+  .main-title {
+    color: ${({ theme }) => theme.hero}
+    font-size: 28pt;
+  }
+  .toggle-button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+  }
   .card {
-      background: ${({ theme }) => theme.hero};
+      background: ${({ theme }) => theme.gradient};
       min-height: 250px;
       margin: 8px 4px 8px 4px;
       border-radius: 5px;
-      box-shadow: ${({ theme }) => `0px 0.5px 3px ${theme.hero}`};
+      box-shadow: ${({ theme }) => `0px 0.5px 3px ${theme.body}`};
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -43,21 +55,45 @@ export const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.text};
       flex: 1;
   }
+
   .card-controls {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      flex:1;
+  }
+  .card-controls label {
+    margin: 16px;
+    font-size: 14pt;
+    font-weight: bolder;
   }
   .card-input {
       padding: 12px;
       border-radius: 5px;
-      color: ${({ theme }) => theme.text}
+      background-color: ${({theme }) => theme.hero}
+      color: ${({ theme }) => theme.hero}
+      font-weight: bolder;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
   .card-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     flex:1;
+  }
+  .card-main-data {
+    font-size: 72pt;
+  }
+  .hero-card {
+    display: flex;
+    flex:0;
+  }
+  .todays-forcast-card {
+    flex: 2;
   }
   .todays-forcast {
     background: ${({ theme }) => theme.hero};

@@ -9,10 +9,10 @@ function Hero() {
         setZip(event.target.value)
     }
     return (
-        <div className="card">
+        <div className="card hero-card">
             <div className="card-controls">
                 <label>Please Enter your Zip Code</label>
-                <input className="card-input" type="number" value={zip} onChange={onChange}/>
+                <input className="card-input" type="tel" value={zip} onChange={onChange} pattern="\d*" maxLength={5}/>
             </div>
         </div>
     )

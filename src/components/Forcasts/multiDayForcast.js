@@ -22,8 +22,8 @@ function MultiDayForcast() {
                         return <div key={dt} className='card'> 
                             <h1>{whichDay(d.dt)}</h1>   
                             <hr/>
-                            <p>{main}</p>
-                            <p>{temp.max} / {temp.min}</p>
+                            <p>{main} °F</p>
+                            <p>{temp.max} °F / {temp.min} °F</p>
 
                         </div>
                     }

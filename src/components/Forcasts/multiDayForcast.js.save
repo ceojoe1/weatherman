@@ -1,19 +1,40 @@
 import React from 'react'
 import { useRecoilValue} from 'recoil'
 import { weatherDataState } from '../../recoil/selectors/zipSelectors'
-
-function TodaysForcast() {
+const whichDay = (date) => {
+q    const day = new Date(date * 1000).getDay()
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    return days[day]
+}
+function MultiDayForcast() {
     const forcast = useRecoilValue(weatherDataState)
     if (forcast && Object.keys(forcast).length > 0) {
+        console.log({forcast})
+        const {daily} = forcast
+        return (
+            <div className='card-container'>
+            {
+                daily.map((d,index) => {
+                    console.log({d})
+                    if (index <= 4) {
+                        return <div key={d.dt} className='card'> 
+                            {whichDay(d.date)}    
+                        </div>
+                        
+                })
+            }
+            </div>
+        )
+       
         const {city} = forcast
         const {temp, weather} = forcast.daily[0]
         const { day, min, max} = temp 
         const [{main}] = weather
         return (
-            <div className='card todays-forcast-card'>
+            <div className='card'>
                 <h2>{city}</h2>
                 <div className='todays-forcast-container'>
-                    <h1 className='card-main-data'>
+                    <h1>
                         {day} °F
                     </h1>
                     <hr/>
@@ -30,6 +51,4 @@ function TodaysForcast() {
     )
     
 }
-
-
-export default TodaysForcast
+export default MultiDayForcast
