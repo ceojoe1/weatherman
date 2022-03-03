@@ -86,7 +86,7 @@ export const GlobalStyles = createGlobalStyle`
     flex:1;
   }
   .card-main-data {
-    font-size: 72pt;
+    font-size: 2em;
   }
   .hero-card {
     display: flex;

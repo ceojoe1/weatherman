@@ -7,7 +7,7 @@ import {
 
   const zipState = atom({
       key: 'zipState',
-      default: '87120'
+      default: '73301'
   })
 
 
